@@ -104,10 +104,10 @@ export class Newscomponent extends Component {
     render() {
        
         return (
-            <div className='container mb-4'>
-                <h2 className='my-3 text-center my-4'>News Hall - Top Headlines on {this.props.category}</h2>
+            <div className='container mt-4'>
+                <h2 className='text-center' style={{marginTop:'90px'}}>NewsCrowd - Top Headlines on {this.props.category}</h2>
                 {this.state.loading && <Loading />}
-                <div> <form className="d-flex my-3" role="search" onSubmit={this.handleSubmit} style={{maxWidth:'content',justifyContent:'right'}}>
+                <div> <form className="d-flex my-2" role="search" onSubmit={this.handleSubmit} style={{maxWidth:'content',justifyContent:'right'}}>
                     <div><input className="form-control me-2" type="search" onChange={this.handleSearch} placeholder="Search" id="search" aria-label="Search"/></div>
                     <div style={{paddingLeft:'1%'}}><FaSearch/></div>
                 </form></div>
@@ -115,7 +115,7 @@ export class Newscomponent extends Component {
                 <div className='row'>
                     {!this.state.loading && this.state.articles.map((element) => {
                         return <div className='col-md-4' key={element.url}>
-                            <Newsitem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 80) : ""} imageUrl={element.urlToImage ? element.urlToImage : "https://livenews.foxnews.com/images/2022/09/6d49e6cb063b68e912f1af950d9c8552.jpg"} url={element.url} date={element.publishedAt} />
+                            <Newsitem title={element.title ? element.title.slice(0, 50)+"...." : ""+"..."} description={element.description ? element.description.slice(0, 80)+"...." : ""+"...."} imageUrl={element.urlToImage ? element.urlToImage : "https://livenews.foxnews.com/images/2022/09/6d49e6cb063b68e912f1af950d9c8552.jpg"} url={element.url} date={element.publishedAt} />
                         </div>
                     })}
 
